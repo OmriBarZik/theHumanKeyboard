@@ -1,36 +1,26 @@
 <script setup>
-import SingleLetter from "./components/SingleLetter.vue";
+import SingleLetter from './components/SingleLetter.vue';
+// import { letters } from "./letters";
+</script>
+
+<script>
+export default {
+  data() {
+    return {
+      letters: '',
+    };
+  },
+};
 </script>
 
 <template>
-  <SingleLetter></SingleLetter>
+  <input type="text" v-model="letters" />
+  {{ letters }}
+  <hr />
+  <SingleLetter :letters="letters"></SingleLetter>
+  <!-- <SingleLetter
+    v-for="letter in letters"
+    v-bind:key="letter"
+    :letter="letter"
+  ></SingleLetter> -->
 </template>
-
-<style scoped>
-header {
-  line-height: 1.5;
-}
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-}
-</style>
